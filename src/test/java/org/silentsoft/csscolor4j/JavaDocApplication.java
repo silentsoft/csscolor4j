@@ -5,7 +5,7 @@ public class JavaDocApplication {
     public static void main(String[] args) {
         System.out.println("This enum defines the named colors from CSS level 1 to CSS level 4.");
         System.out.println();
-        System.out.println("<table summary=\"Supported colors\">");
+        System.out.println("<table>");
         System.out.println("  <tr>");
         System.out.println("    <th></th>");
         System.out.println("    <th>Name</th>");

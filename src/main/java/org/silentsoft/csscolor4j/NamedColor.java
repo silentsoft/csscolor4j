@@ -3,7 +3,7 @@ package org.silentsoft.csscolor4j;
 /**
  * This enum defines the named colors from CSS level 1 to CSS level 4.
  *
- * <table summary="Supported colors">
+ * <table>
  *   <tr>
  *     <th></th>
  *     <th>Name</th>
