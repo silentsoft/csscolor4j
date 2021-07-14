@@ -1,10 +1,10 @@
 # CSSColor4J
 
-![release](https://img.shields.io/badge/release-v1.0.0-blue.svg)
+![Maven Central](https://img.shields.io/maven-central/v/org.silentsoft/csscolor4j)
 [![Build Status](https://travis-ci.com/silentsoft/csscolor4j.svg?branch=main)](https://travis-ci.com/silentsoft/csscolor4j)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=silentsoft_csscolor4j&metric=alert_status)](https://sonarcloud.io/dashboard?id=silentsoft_csscolor4j)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=silentsoft_csscolor4j&metric=coverage)](https://sonarcloud.io/dashboard?id=silentsoft_csscolor4j)
-[![HitCount](http://hits.dwyl.com/silentsoft/csscolor4j.svg)](http://hits.dwyl.com/silentsoft/csscolor4j)
+[![Hits](https://hits.sh/github.com/silentsoft/csscolor4j.svg)](https://hits.sh)
 
 `CSSColor4J` is a simple Java library for parsing CSS color string representations.
 
