@@ -1,7 +1,7 @@
 # CSSColor4J
 
-![Maven Central](https://img.shields.io/maven-central/v/org.silentsoft/csscolor4j)
-[![Build Status](https://travis-ci.com/silentsoft/csscolor4j.svg?branch=main)](https://travis-ci.com/silentsoft/csscolor4j)
+[![Maven Central](https://img.shields.io/maven-central/v/org.silentsoft/csscolor4j)](https://search.maven.org/artifact/org.silentsoft/csscolor4j)
+[![Build Status](https://app.travis-ci.com/silentsoft/csscolor4j.svg?branch=main)](https://app.travis-ci.com/silentsoft/csscolor4j)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=silentsoft_csscolor4j&metric=alert_status)](https://sonarcloud.io/dashboard?id=silentsoft_csscolor4j)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=silentsoft_csscolor4j&metric=coverage)](https://sonarcloud.io/dashboard?id=silentsoft_csscolor4j)
 [![Hits](https://hits.sh/github.com/silentsoft/csscolor4j.svg)](https://hits.sh)
