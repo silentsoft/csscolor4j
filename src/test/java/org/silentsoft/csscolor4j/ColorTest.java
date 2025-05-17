@@ -92,6 +92,11 @@ public class ColorTest {
     }
 
     @Test
+    public void hslRoundingTest() {
+        Assertions.assertEquals("#c678dd", Color.valueOf("hsl(286, 60%, 67%)").getHex());
+    }
+
+    @Test
     public void cmykTest() {
         Color cyan = Color.valueOf("cmyk(1, 0, 0, 0)");
         assertCMYK(cyan, 1, 0, 0, 0);
