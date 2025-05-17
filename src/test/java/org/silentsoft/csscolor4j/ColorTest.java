@@ -127,7 +127,10 @@ public class ColorTest {
     public void hexTest() {
         Assertions.assertEquals("#ffffff", Color.valueOf("rgb(255, 255, 255)").getHex());
         Assertions.assertEquals("#ffffff", Color.valueOf("rgba(255, 255, 255, 1.0)").getHex());
+        Assertions.assertEquals("#ffffff00", Color.valueOf("rgba(255, 255, 255, 0)").getHex());
         Assertions.assertEquals("#ffffff80", Color.valueOf("rgba(255, 255, 255, 0.5)").getHex());
+        Assertions.assertEquals("#ffffff", Color.valueOf("rgba(255, 255, 255, 1.5)").getHex());
+        Assertions.assertEquals("#ffffff00", Color.valueOf("rgba(255, 255, 255, -0.5)").getHex());
 
         Assertions.assertEquals("#9cf", Color.valueOf("9cf").getHex());
         Assertions.assertEquals("#9cf", Color.valueOf("#9cf").getHex());

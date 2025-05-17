@@ -92,11 +92,11 @@ public class Color {
             }
         }
 
-        if (opacity == 1) {
+        int alpha = (int) Math.round(opacity * 255);
+        if (alpha >= 255) {
             color.hex = String.format(Locale.ROOT, "#%02x%02x%02x", red, green, blue);
         } else {
-            color.hex = String.format(Locale.ROOT, "#%02x%02x%02x%02x", red, green, blue,
-                    (int) Math.round(opacity * 255));
+            color.hex = String.format(Locale.ROOT, "#%02x%02x%02x%02x", red, green, blue, Math.max(0, alpha));
         }
 
         return color;
