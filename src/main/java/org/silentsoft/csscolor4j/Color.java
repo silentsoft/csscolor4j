@@ -268,7 +268,7 @@ public class Color {
      * @see #hex(String)
      */
     public static Color valueOf(String value) throws IllegalArgumentException {
-        value = value.trim().toLowerCase();
+        value = value.trim().toLowerCase(Locale.ROOT);
 
         if (value.contains("rgb")) {
             String[] rgb = split(value);
@@ -434,7 +434,7 @@ public class Color {
     }
 
     private static double toDegrees(String value) {
-        value = value.toLowerCase().trim();
+        value = value.toLowerCase(Locale.ROOT).trim();
         if (value.contains("deg")) {
             return Double.valueOf(value.replace("deg", "").trim());
         } else if (value.contains("grad")) {
