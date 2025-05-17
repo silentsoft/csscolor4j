@@ -1,6 +1,7 @@
 package org.silentsoft.csscolor4j;
 
 import java.math.BigDecimal;
+import java.util.Locale;
 import java.util.Objects;
 
 public class Color {
@@ -91,7 +92,12 @@ public class Color {
             }
         }
 
-        color.hex = String.format("#%02x%02x%02x", red, green, blue);
+        if (opacity == 1) {
+            color.hex = String.format(Locale.ROOT, "#%02x%02x%02x", red, green, blue);
+        } else {
+            color.hex = String.format(Locale.ROOT, "#%02x%02x%02x%02x", red, green, blue,
+                    (int) Math.round(opacity * 255));
+        }
 
         return color;
     }
