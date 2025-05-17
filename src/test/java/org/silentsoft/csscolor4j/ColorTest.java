@@ -92,6 +92,11 @@ public class ColorTest {
     }
 
     @Test
+    public void hslRoundingTest() {
+        Assertions.assertEquals("#c678dd", Color.valueOf("hsl(286, 60%, 67%)").getHex());
+    }
+
+    @Test
     public void cmykTest() {
         Color cyan = Color.valueOf("cmyk(1, 0, 0, 0)");
         assertCMYK(cyan, 1, 0, 0, 0);
@@ -121,6 +126,11 @@ public class ColorTest {
     @Test
     public void hexTest() {
         Assertions.assertEquals("#ffffff", Color.valueOf("rgb(255, 255, 255)").getHex());
+        Assertions.assertEquals("#ffffff", Color.valueOf("rgba(255, 255, 255, 1.0)").getHex());
+        Assertions.assertEquals("#ffffff00", Color.valueOf("rgba(255, 255, 255, 0)").getHex());
+        Assertions.assertEquals("#ffffff80", Color.valueOf("rgba(255, 255, 255, 0.5)").getHex());
+        Assertions.assertEquals("#ffffff", Color.valueOf("rgba(255, 255, 255, 1.5)").getHex());
+        Assertions.assertEquals("#ffffff00", Color.valueOf("rgba(255, 255, 255, -0.5)").getHex());
 
         Assertions.assertEquals("#9cf", Color.valueOf("9cf").getHex());
         Assertions.assertEquals("#9cf", Color.valueOf("#9cf").getHex());
@@ -308,6 +318,7 @@ public class ColorTest {
         Assertions.assertEquals(Color.WHEAT, Color.valueOf("wheat"));
         Assertions.assertEquals(Color.WHITESMOKE, Color.valueOf("whitesmoke"));
         Assertions.assertEquals(Color.YELLOWGREEN, Color.valueOf("yellowgreen"));
+        Assertions.assertEquals(Color.REBECCAPURPLE, Color.valueOf("rebeccapurple"));
     }
 
     private void assertRGB(Color color, int red, int green, int blue) {

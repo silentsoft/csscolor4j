@@ -1,6 +1,7 @@
 package org.silentsoft.csscolor4j;
 
 import java.math.BigDecimal;
+import java.util.Locale;
 import java.util.Objects;
 
 public class Color {
@@ -91,7 +92,12 @@ public class Color {
             }
         }
 
-        color.hex = String.format("#%02x%02x%02x", red, green, blue);
+        int alpha = (int) Math.round(opacity * 255);
+        if (alpha >= 255) {
+            color.hex = String.format(Locale.ROOT, "#%02x%02x%02x", red, green, blue);
+        } else {
+            color.hex = String.format(Locale.ROOT, "#%02x%02x%02x%02x", red, green, blue, Math.max(0, alpha));
+        }
 
         return color;
     }
@@ -171,9 +177,9 @@ public class Color {
         }
         double _m = lightness - (_c / 2);
 
-        int red = (int)((_rgb[0] + _m) * 255);
-        int green = (int)((_rgb[1] + _m) * 255);
-        int blue = (int)((_rgb[2] + _m) * 255);
+        int red = (int) Math.round((_rgb[0] + _m) * 255);
+        int green = (int) Math.round((_rgb[1] + _m) * 255);
+        int blue = (int) Math.round((_rgb[2] + _m) * 255);
 
         Color color = rgb(red, green, blue, opacity);
         color.hue = hue;
@@ -262,8 +268,8 @@ public class Color {
      * @see #hex(String)
      */
     public static Color valueOf(String value) throws IllegalArgumentException {
-        value = value.trim().toLowerCase();
-
+        value = value.trim().toLowerCase(Locale.ROOT);
+        NamedColor namedColor;
         if (value.contains("rgb")) {
             String[] rgb = split(value);
             if (rgb[0].contains("%") || rgb[1].contains("%") || rgb[2].contains("%")) {
@@ -295,8 +301,8 @@ public class Color {
             double opacity = hsl.length >= 4 ? parseDouble(hsl[3], 1) : 1.0;
 
             return hsl(hue, saturation, lightness, opacity);
-        } else if (NamedColor.nameOf(value) != null) {
-            return hex(NamedColor.nameOf(value).getHex());
+        } else if ((namedColor = NamedColor.nameOf(value)) != null) {
+            return hex(namedColor.getHex());
         } else if ("transparent".equals(value)) {
             return rgb(0, 0, 0, 0);
         } else if (value.startsWith("#") || value.length() == 3 || value.length() == 4 ||  value.length() == 6 || value.length() == 8) {
@@ -410,7 +416,7 @@ public class Color {
     private static double parseDouble(String value, double limit) {
         boolean hasPercent = value.contains("%");
         value = value.replace("%", "").trim();
-        double number = Double.valueOf(value);
+        double number = Double.parseDouble(value);
         return hasPercent ? BigDecimal.valueOf(number).multiply(BigDecimal.valueOf((limit / 100.0))).doubleValue() : number;
     }
 
@@ -428,15 +434,15 @@ public class Color {
     }
 
     private static double toDegrees(String value) {
-        value = value.toLowerCase().trim();
+        value = value.toLowerCase(Locale.ROOT).trim();
         if (value.contains("deg")) {
-            return Double.valueOf(value.replace("deg", "").trim());
+            return Double.parseDouble(value.replace("deg", "").trim());
         } else if (value.contains("grad")) {
-            return (Double.valueOf(value.replace("grad", "").trim()) / 400.0) * 360.0;
+            return (Double.parseDouble(value.replace("grad", "").trim()) / 400.0) * 360.0;
         } else if (value.contains("rad")) {
-            return Double.valueOf(value.replace("rad", "").trim()) * (180.0 / Math.PI);
+            return Double.parseDouble(value.replace("rad", "").trim()) * (180.0 / Math.PI);
         } else if (value.contains("turn")) {
-            return Double.valueOf(value.replace("turn", "").trim()) * 360.0;
+            return Double.parseDouble(value.replace("turn", "").trim()) * 360.0;
         }
         return parseDouble(value, 360);
     }
