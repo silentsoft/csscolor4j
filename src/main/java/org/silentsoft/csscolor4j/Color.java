@@ -171,9 +171,9 @@ public class Color {
         }
         double _m = lightness - (_c / 2);
 
-        int red = (int)((_rgb[0] + _m) * 255);
-        int green = (int)((_rgb[1] + _m) * 255);
-        int blue = (int)((_rgb[2] + _m) * 255);
+        int red = (int) Math.round((_rgb[0] + _m) * 255);
+        int green = (int) Math.round((_rgb[1] + _m) * 255);
+        int blue = (int) Math.round((_rgb[2] + _m) * 255);
 
         Color color = rgb(red, green, blue, opacity);
         color.hue = hue;
