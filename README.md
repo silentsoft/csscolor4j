@@ -49,7 +49,7 @@ Color.valueOf("#ff0099ff");
 <dependency>
     <groupId>org.silentsoft</groupId>
     <artifactId>csscolor4j</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 
