@@ -308,6 +308,7 @@ public class ColorTest {
         Assertions.assertEquals(Color.WHEAT, Color.valueOf("wheat"));
         Assertions.assertEquals(Color.WHITESMOKE, Color.valueOf("whitesmoke"));
         Assertions.assertEquals(Color.YELLOWGREEN, Color.valueOf("yellowgreen"));
+        Assertions.assertEquals(Color.REBECCAPURPLE, Color.valueOf("rebeccapurple"));
     }
 
     private void assertRGB(Color color, int red, int green, int blue) {
