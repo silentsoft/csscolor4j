@@ -269,7 +269,7 @@ public class Color {
      */
     public static Color valueOf(String value) throws IllegalArgumentException {
         value = value.trim().toLowerCase(Locale.ROOT);
-
+        NamedColor namedColor;
         if (value.contains("rgb")) {
             String[] rgb = split(value);
             if (rgb[0].contains("%") || rgb[1].contains("%") || rgb[2].contains("%")) {
@@ -301,8 +301,8 @@ public class Color {
             double opacity = hsl.length >= 4 ? parseDouble(hsl[3], 1) : 1.0;
 
             return hsl(hue, saturation, lightness, opacity);
-        } else if (NamedColor.nameOf(value) != null) {
-            return hex(NamedColor.nameOf(value).getHex());
+        } else if ((namedColor = NamedColor.nameOf(value)) != null) {
+            return hex(namedColor.getHex());
         } else if ("transparent".equals(value)) {
             return rgb(0, 0, 0, 0);
         } else if (value.startsWith("#") || value.length() == 3 || value.length() == 4 ||  value.length() == 6 || value.length() == 8) {
